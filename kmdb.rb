@@ -76,9 +76,25 @@
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
 # TODO!
+Actor.destroy_all
+Studio.destroy_all
+Movie.destroy_all
+Character.destroy_all
+
 
 # Generate models and tables, according to the domain model.
 # TODO!
+
+actors = Actor.all.count
+
+
+new_actor = Actor.new
+
+new_actor["name"] = "Christian Bale"
+new_actor.save
+puts new_actor.inspect
+
+#FIGURE OUT HOW TO ADD ANOTHER RECORD? DO I NEED ALL THE STUFF?
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
