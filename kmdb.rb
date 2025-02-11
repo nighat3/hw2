@@ -85,8 +85,12 @@ Character.destroy_all
 # Generate models and tables, according to the domain model.
 # TODO!
 
-actors = Actor.all.count
+# Insert data into the database that reflects the sample data shown above.
+# Do not use hard-coded foreign key IDs.
+# TODO!
 
+# Adding actors 
+actors = Actor.all.count
 
 new_actor = Actor.new
 
@@ -94,11 +98,159 @@ new_actor["name"] = "Christian Bale"
 new_actor.save
 puts new_actor.inspect
 
-#FIGURE OUT HOW TO ADD ANOTHER RECORD? DO I NEED ALL THE STUFF?
+new_actor = Actor.new
 
-# Insert data into the database that reflects the sample data shown above.
-# Do not use hard-coded foreign key IDs.
-# TODO!
+new_actor["name"] = "Michael Caine"
+new_actor.save
+puts new_actor.inspect
+
+new_actor = Actor.new
+
+new_actor["name"] = "Liam Neeson"
+new_actor.save
+puts new_actor.inspect
+
+new_actor = Actor.new
+
+new_actor["name"] = "Katie Holmes"
+new_actor.save
+puts new_actor.inspect
+
+new_actor = Actor.new
+
+new_actor["name"] = "Gary Oldman"
+new_actor.save
+puts new_actor.inspect
+
+new_actor = Actor.new
+
+new_actor["name"] = "Heath Ledger"
+new_actor.save
+puts new_actor.inspect
+
+new_actor = Actor.new
+
+new_actor["name"] = "Aaron Eckhart"
+new_actor.save
+puts new_actor.inspect
+
+new_actor = Actor.new
+
+new_actor["name"] = "Maggie Gyllenhaal"
+new_actor.save
+puts new_actor.inspect
+
+new_actor = Actor.new
+
+new_actor["name"] = "Tom Hardy"
+new_actor.save
+puts new_actor.inspect
+
+new_actor = Actor.new
+
+new_actor["name"] = "Joseph Gordon-Levitt"
+new_actor.save
+puts new_actor.inspect
+
+new_actor = Actor.new
+
+new_actor["name"] = "Anne Hathaway"
+new_actor.save
+puts new_actor.inspect
+
+puts "There are #{Actor.all.count} actors"
+
+# Studio data entry
+
+studios = Studio.all.count
+
+new_studio = Studio.new
+
+new_studio["name"] = "Warner Bros."
+new_studio.save
+puts new_studio.inspect
+puts "There are #{Studio.all.count} studios"
+
+# Movie data entry
+
+studio = Studio.find_by({ "name" => "Warner Bros." })
+
+movies = Movie.all.count
+
+new_movie = Movie.new
+
+new_movie["title"] = "Batman Begins"
+new_movie["release_year"] = 2005
+new_movie["rating"] = "PG-13"
+new_movie["studio_id"] = studio["id"]
+
+new_movie.save
+puts new_movie.inspect
+
+new_movie = Movie.new
+
+new_movie["title"] = "The Dark Knight"
+new_movie["release_year"] = 2008
+new_movie["rating"] = "PG-13"
+new_movie["studio_id"] = studio["id"]
+
+new_movie.save
+puts new_movie.inspect
+
+new_movie = Movie.new
+new_movie["title"] = "The Dark Knight Rises"
+new_movie["release_year"] = 2012
+new_movie["rating"] = "PG-13"
+new_movie["studio_id"] = studio["id"]
+
+new_movie.save
+puts new_movie.inspect
+
+puts "There are #{Movie.all.count} movies"
+
+# Character data entry
+
+studio = Studio.find_by({ "name" => "Warner Bros." })
+movie_1 = Movie.find_by ({"title" => "Batman Begins"})
+movie_2 = Movie.find_by ({"title" => "The Dark Knight"})
+movie_3 = Movie.find_by ({"title" => "The Dark Knight Rises"})
+
+actor_1 = Actor.find_by ({"name => "Christian Bale"})
+actor_2 = Actor.find_by ({"name" => "Michael Caine"})
+actor_3 = Actor.find_by ({"name" => "Liam Neeson"})
+actor_4 = Actor.find_by ({"name => "Katie Holmes"})
+actor_5 = Actor.find_by ({"name" => "Gary Oldman"})
+actor_6 = Actor.find_by ({"name" => "Heath Ledger"})
+actor_7 = Actor.find_by ({"name" => "Aaron Eckhart"})
+actor_8 = Actor.find_by ({"name" => "Maggie Gyllenhaal"})
+actor_9 = Actor.find_by ({"name" => "Tom Hardy"})
+actor_10 = Actor.find_by ({"name" => "Joseph Gordon-Levitt"})
+actor_11 = Actor.find_by ({"name" => "Anne Hathaway"})
+
+
+
+characters = Character.all.count
+
+new_character = Character.new
+
+new_character["character_name"] = "Bruce Wayne"
+new_character["movie_id"] = movie_1["id"]
+new_character["studio_id"] = studio["id"]
+
+new_character.save
+
+
+characters = Character.all.count
+
+new_character = Character.new
+
+new_character["character_name"] = "Alfred"
+new_character["movie_id"] = movie_1["id"]
+new_character["studio_id"] = studio["id"]
+
+new_character.save
+
+puts new_character.inspect
 
 # Prints a header for the movies output
 puts "Movies"
