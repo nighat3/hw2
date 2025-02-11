@@ -215,10 +215,10 @@ movie_1 = Movie.find_by ({"title" => "Batman Begins"})
 movie_2 = Movie.find_by ({"title" => "The Dark Knight"})
 movie_3 = Movie.find_by ({"title" => "The Dark Knight Rises"})
 
-actor_1 = Actor.find_by ({"name => "Christian Bale"})
+actor_1 = Actor.find_by ({"name" => "Christian Bale"})
 actor_2 = Actor.find_by ({"name" => "Michael Caine"})
 actor_3 = Actor.find_by ({"name" => "Liam Neeson"})
-actor_4 = Actor.find_by ({"name => "Katie Holmes"})
+actor_4 = Actor.find_by ({"name" => "Katie Holmes"})
 actor_5 = Actor.find_by ({"name" => "Gary Oldman"})
 actor_6 = Actor.find_by ({"name" => "Heath Ledger"})
 actor_7 = Actor.find_by ({"name" => "Aaron Eckhart"})
@@ -235,22 +235,137 @@ new_character = Character.new
 
 new_character["character_name"] = "Bruce Wayne"
 new_character["movie_id"] = movie_1["id"]
-new_character["studio_id"] = studio["id"]
+new_character["actor_id"] = actor_1["id"]
 
 new_character.save
-
-
-characters = Character.all.count
+puts new_character.inspect
 
 new_character = Character.new
 
 new_character["character_name"] = "Alfred"
 new_character["movie_id"] = movie_1["id"]
-new_character["studio_id"] = studio["id"]
+new_character["actor_id"] = actor_2["id"]
 
 new_character.save
-
 puts new_character.inspect
+
+new_character = Character.new
+
+new_character["character_name"] = "Ra's Al Ghul"
+new_character["movie_id"] = movie_1["id"]
+new_character["actor_id"] = actor_3["id"]
+
+new_character.save
+puts new_character.inspect
+
+new_character = Character.new
+
+new_character["character_name"] = "Rachel Dawes"
+new_character["movie_id"] = movie_1["id"]
+new_character["actor_id"] = actor_4["id"]
+
+new_character.save
+puts new_character.inspect
+
+new_character = Character.new
+
+new_character["character_name"] = "Commissioner Gordon"
+new_character["movie_id"] = movie_1["id"]
+new_character["actor_id"] = actor_5["id"]
+
+new_character.save
+puts new_character.inspect
+
+new_character = Character.new
+
+new_character["character_name"] = "Bruce Wayne"
+new_character["movie_id"] = movie_2["id"]
+new_character["actor_id"] = actor_1["id"]
+
+new_character.save
+puts new_character.inspect
+
+new_character = Character.new
+
+new_character["character_name"] = "Joker"
+new_character["movie_id"] = movie_2["id"]
+new_character["actor_id"] = actor_6["id"]
+
+new_character.save
+puts new_character.inspect
+
+new_character = Character.new
+
+new_character["character_name"] = "Harvey Dent"
+new_character["movie_id"] = movie_2["id"]
+new_character["actor_id"] = actor_7["id"]
+
+new_character.save
+puts new_character.inspect
+
+new_character = Character.new
+
+new_character["character_name"] = "Alfred"
+new_character["movie_id"] = movie_2["id"]
+new_character["actor_id"] = actor_2["id"]
+
+new_character.save
+puts new_character.inspect
+
+new_character = Character.new
+
+new_character["character_name"] = "Rachel Dawes"
+new_character["movie_id"] = movie_2["id"]
+new_character["actor_id"] = actor_8["id"]
+
+new_character.save
+puts new_character.inspect
+
+new_character = Character.new
+
+new_character["character_name"] = "Bruce Wayne"
+new_character["movie_id"] = movie_3["id"]
+new_character["actor_id"] = actor_1["id"]
+
+new_character.save
+puts new_character.inspect
+
+
+new_character = Character.new
+
+new_character["character_name"] = "Commissioner Gordon"
+new_character["movie_id"] = movie_3["id"]
+new_character["actor_id"] = actor_5["id"]
+
+new_character.save
+puts new_character.inspect
+
+new_character = Character.new
+
+new_character["character_name"] = "Bane"
+new_character["movie_id"] = movie_3["id"]
+new_character["actor_id"] = actor_9["id"]
+
+new_character.save
+puts new_character.inspect
+
+new_character = Character.new
+
+new_character["character_name"] = "John Blake"
+new_character["movie_id"] = movie_3["id"]
+new_character["actor_id"] = actor_10["id"]
+
+new_character = Character.new
+
+new_character["character_name"] = "Selia Kyle"
+new_character["movie_id"] = movie_3["id"]
+new_character["actor_id"] = actor_11["id"]
+
+new_character.save
+puts new_character.inspect
+
+
+puts "There are #{Character.all.count} characters"
 
 # Prints a header for the movies output
 puts "Movies"
