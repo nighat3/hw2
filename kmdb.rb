@@ -228,7 +228,6 @@ actor_10 = Actor.find_by ({"name" => "Joseph Gordon-Levitt"})
 actor_11 = Actor.find_by ({"name" => "Anne Hathaway"})
 
 
-
 characters = Character.all.count
 
 new_character = Character.new
@@ -378,20 +377,17 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
-movie_names = Movie.where({ "studio_id" => studio["id"] })
+movie_names = Movie.all
 
 for mov in movie_names
         title = mov["title"]
         year = mov["release_year"]
         rating = mov["rating"]
         studio = Studio.find_by({"id" => mov["studio_id"]}).name
-        # display the first_name and last_name
         puts "#{title} #{year} #{rating} #{studio}"
   
   end
   
-
-
 # Prints a header for the cast output
 puts ""
 puts "Top Cast"
@@ -400,3 +396,14 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+character_names = Character.all
+
+for char in character_names
+    movie = Movie.find_by({"id" => char["movie_id"]}).title
+    actor = Actor.find_by({"id" => char["actor_id"]}).name
+    name = char["character_name"]
+    puts "#{movie} #{actor} #{name}"
+
+end
+
