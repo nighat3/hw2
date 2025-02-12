@@ -355,9 +355,12 @@ new_character["character_name"] = "John Blake"
 new_character["movie_id"] = movie_3["id"]
 new_character["actor_id"] = actor_10["id"]
 
+new_character.save
+puts new_character.inspect
+
 new_character = Character.new
 
-new_character["character_name"] = "Selia Kyle"
+new_character["character_name"] = "Selina Kyle"
 new_character["movie_id"] = movie_3["id"]
 new_character["actor_id"] = actor_11["id"]
 
@@ -374,6 +377,20 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+
+movie_names = Movie.where({ "studio_id" => studio["id"] })
+
+for mov in movie_names
+        title = mov["title"]
+        year = mov["release_year"]
+        rating = mov["rating"]
+        studio = Studio.find_by({"id" => mov["studio_id"]}).name
+        # display the first_name and last_name
+        puts "#{title} #{year} #{rating} #{studio}"
+  
+  end
+  
+
 
 # Prints a header for the cast output
 puts ""
