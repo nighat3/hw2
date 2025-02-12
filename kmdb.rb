@@ -370,6 +370,8 @@ puts new_character.inspect
 puts "There are #{Character.all.count} characters"
 
 # Prints a header for the movies output
+puts ""
+puts ""
 puts "Movies"
 puts "======"
 puts ""
@@ -384,7 +386,7 @@ for mov in movie_names
         year = mov["release_year"]
         rating = mov["rating"]
         studio = Studio.find_by({"id" => mov["studio_id"]}).name
-        puts "#{title} #{year} #{rating} #{studio}"
+        puts "#{title}  #{year}  #{rating}  #{studio}"
   
   end
   
@@ -403,7 +405,7 @@ for char in character_names
     movie = Movie.find_by({"id" => char["movie_id"]}).title
     actor = Actor.find_by({"id" => char["actor_id"]}).name
     name = char["character_name"]
-    puts "#{movie} #{actor} #{name}"
+    puts "#{movie}  #{actor}  #{name}"
 
 end
 
